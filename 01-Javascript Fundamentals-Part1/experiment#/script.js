@@ -214,10 +214,10 @@ year = 2026;
 console.log("I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!');
 console.log(`I'm ${firstName}, a ${year - birthYear} years old ${job}!`);
 console.log(`this is a string...`);
-console.log(`this is a\n\
-    multiline \n\
-    example`)
- */
+console.log(`this is a
+    multiline
+    example`) */
+
 
 
 //if-else statement
