@@ -91,6 +91,7 @@ Before writing any code, ask:
 What is the input?
 What is the output?
 What are the rules/conditions?
+
 👉 Example:
 “Find the largest number in an array”
 Input: [3, 7, 2, 9]
@@ -215,20 +216,17 @@ Use quotes for exact match:
 🧠 Example
 
 Problem:
-
 arr.reverse is not a function
 
 Search:
-
 reverse is not a function javascript
 
 👉 Google will show:
-
 Stack Overflow links
 MDN docs
 Blog explanations
-💬 2. Using Stack Overflow
 
+💬 2. Using Stack Overflow
 Stack Overflow is where developers ask and answer real problems.
 
 ✅ How to use it
@@ -239,7 +237,6 @@ Explanation
 Code solution
 Look at comments for edge cases
 🧠 Example
-
 Search result:
 
 "how to loop array javascript"
