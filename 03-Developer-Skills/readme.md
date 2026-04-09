@@ -187,7 +187,7 @@ Test everything
 Debug calmly
 Practice daily
 
-🎯 Final Truth
+🎯 Conclusion
 👉 Great developers are not faster—they are more structured in thinking
 
 **Using Google, StackOverflow and MDN**

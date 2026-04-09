@@ -15,7 +15,6 @@ const item = document.querySelector("#item"); // by id
 👉 Returns only the first match
 
 🔍 2. querySelectorAll()
-
 👉 Selects all matching elements
 
 ✅ Syntax
@@ -33,8 +32,8 @@ console.log(item);
 Method Returns
 querySelector First element
 querySelectorAll All elements
-🖱️ 3. addEventListener()
 
+🖱️ 3. addEventListener()
 👉 Used to handle events (click, hover, keypress, etc.)
 
 ✅ Syntax
@@ -50,8 +49,8 @@ console.log("Button clicked!");
 "mouseover"
 "keydown"
 "submit"
-🧱 4. classList Methods
 
+🧱 4. classList Methods
 👉 Used to add, remove, or toggle CSS classes
 
 ✅ Methods

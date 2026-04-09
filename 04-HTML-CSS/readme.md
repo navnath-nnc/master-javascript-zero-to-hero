@@ -245,15 +245,12 @@ height: 100px; 2. 📦 Padding (Space inside the box)
 Space between content and border
 
 padding: 10px;
-
 👉 Adds space inside the element
 
 3. 🧱 Border
-
-Wraps around padding and content
+   Wraps around padding and content
 
 border: 2px solid black; 4. 🌐 Margin (Outer space)
-
 Space outside the element
 
 margin: 20px;
