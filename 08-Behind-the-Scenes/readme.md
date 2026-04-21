@@ -320,7 +320,6 @@ After 2 sec → callback goes to Callback Queue
 🔄 How everything connects
 
 Now combine all three:
-
 👉 Call Stack
 👉 Callback Queue
 👉 Event system → Event Loop
@@ -367,21 +366,20 @@ Event Loop = a watcher that keeps checking “Can I run the next task?”
 1. Call Stack 🥞
    Where JavaScript executes code
    One task at a time (single-threaded)
+
 2. Web APIs 🌐
+   Provided by browser like Google Chrome
+   Handles:
+   setTimeout
+   API calls
+   DOM events
 
-Provided by browser like Google Chrome
+3. Callback Queue 📥
+   Stores completed async tasks
+   Waiting for execution
 
-Handles:
-
-setTimeout
-API calls
-DOM events 3. Callback Queue 📥
-Stores completed async tasks
-Waiting for execution
 🔄 How Event Loop Works (Step-by-Step)
-
 Let’s take a simple example:
-
 console.log("Start");
 
 setTimeout(() => {
@@ -389,44 +387,45 @@ console.log("Async Task");
 }, 2000);
 
 console.log("End");
+
 🟢 Step 1: Run "Start"
 Goes into Call Stack
 Executes → prints Start
 Removed
+
 🟡 Step 2: setTimeout
 Sent to Web APIs
 Timer starts (2 sec)
-
 👉 JS does NOT wait ❗
 
 🔵 Step 3: Run "End"
 Executes immediately
 Prints End
+
 ⏳ Step 4: Timer completes
 Callback moves to Callback Queue
+
 🔁 Step 5: Event Loop checks
-
 👉 It continuously checks:
-
 ✔ “Is Call Stack empty?”
 
 If YES → take task from queue
 Push into Call Stack
+
 🔴 Step 6: Execute callback
 Prints Async Task
 ✅ Final Output:
 Start
 End
 Async Task
+
 🎯 Golden Rule (Very Important)
 
-👉
-Event Loop only pushes tasks to the Call Stack when it is EMPTY
+👉Event Loop only pushes tasks to the Call Stack when it is EMPTY
 
 🧑‍🍳 Real-Life Analogy
 
 Chef 👨‍🍳 example:
-
 Cooking = Call Stack
 Oven = Web APIs
 Ready dishes = Callback Queue
@@ -435,16 +434,14 @@ Chef checking → Event Loop
 👉 Chef only picks new dish when free
 
 ⚡ Why Event Loop is needed?
-
 Because JavaScript is:
-
 Single-threaded
 Synchronous by default
 
 👉 Event loop makes it:
-
 Non-blocking
 Efficient
+
 🧾 Final Summary
 Event Loop manages async execution
 Works with:
@@ -452,10 +449,9 @@ Call Stack
 Web APIs
 Callback Queue
 Ensures smooth execution without blocking
-💡 One-line takeaway
 
-👉
-Event Loop allows JavaScript to handle async tasks by running them only when the call stack is free
+💡 One-line takeaway
+👉Event Loop allows JavaScript to handle async tasks by running them only when the call stack is free
 
 **What is Scope and Scope Chain in Javascript**
 
@@ -467,7 +463,6 @@ Where a variable can be accessed in your code
 
 📦 Types of Scope
 🔹 1. Global Scope
-
 👉 Variables declared outside any function
 
 let a = 10;
@@ -481,7 +476,6 @@ test(); // 10
 ✔ a is accessible everywhere
 
 🔹 2. Function Scope
-
 👉 Variables declared inside a function
 
 function test() {
@@ -571,17 +565,14 @@ Scope is decided at the time of writing code (lexical scope)
 Inner functions can access outer variables
 Outer cannot access inner variables
 🧾 Final Summary
-Scope:
-Defines where variables are accessible
-Scope Chain:
-Order in which JS searches variables
+Scope: Defines where variables are accessible
+Scope Chain:Order in which JS searches variables
 Inner → outer → global
+
 💡 One-line takeaway
+👉Scope defines access, and scope chain defines how JavaScript searches for variables
 
-👉
-Scope defines access, and scope chain defines how JavaScript searches for variables
-
-\*\*Variavle Environment: Hoisting and TDZ
+**Variavle Environment: Hoisting and TDZ**
 
 1. What is Variable Environment?
 
@@ -592,22 +583,19 @@ It is where JavaScript stores variables and functions in memory before execution
 📦 Think of it like:
 
 Before running code, JS does:
-
 Scan code
 Store variables in memory
 Then execute line by line
+
 🔄 2. What is Hoisting?
 
-👉 Hoisting means:
-
-JavaScript moves declarations to the top of their scope during memory creation phase
+👉 Hoisting means: JavaScript moves declarations to the top of their scope during memory creation phase
 
 🔹 Example with var
 console.log(a);
 var a = 10;
 
 👉 Internally becomes:
-
 var a; // hoisted
 console.log(a); // undefined
 a = 10;
@@ -638,55 +626,47 @@ let b = 20;
 Start → (TDZ) → let b = 20 → usable
 
 👉 During TDZ:
-
 Variable exists in memory
 But cannot be accessed
-🔥 Difference: var vs let/const
-Feature var let / const
-Hoisted ✅ Yes ✅ Yes
-Initial value undefined ❌ Not initialized
-TDZ ❌ No ✅ Yes
-Access before declaration ✅ undefined ❌ Error
+
 🧩 How it works internally
-
 During execution context creation:
-
 Memory phase:
 var a = 10;
 let b = 20;
 
 👉 Stored like:
-
 a → undefined
 b → <uninitialized> (TDZ)
 Execution phase:
 a = 10 → updated
 b = 20 → initialized
-🧑‍🍳 Simple analogy
 
+🧑‍🍳 Simple analogy
 Think of variables like booking a seat 🎟
 
 var
 Seat booked + you can sit anytime (even before actual time)
+
 let/const
 Seat booked
 But you can’t sit until event starts (TDZ)
+
 🎯 Important Interview Points
 Hoisting happens in memory phase
 var is initialized with undefined
 let/const are in TDZ until initialized
 Accessing let/const before declaration → ReferenceError
+
 🧾 Final Summary
-Variable Environment:
-Stores variables during execution context creation
-Hoisting:
-Moves declarations to top
+Variable Environment: Stores variables during execution context creation
+Hoisting: Moves declarations to top
 TDZ:
 Time where let/const cannot be accessed
+
 💡 One-line takeaway
 
-👉
-JavaScript hoists variables, but let and const stay in the TDZ until they are initialized
+👉JavaScript hoists variables, but let and const stay in the TDZ until they are initialized
 
 **What is Function Hoisting?**
 
@@ -709,11 +689,9 @@ Because internally JavaScript treats it like:
 function sayHello() {
 console.log("Hello");
 }
-
 sayHello();
 
 👉 The entire function (code + body) is hoisted
-
 ✔ You can call it before declaration
 
 🔹 2. Function Expression (NOT fully hoisted)
@@ -727,64 +705,50 @@ TypeError: sayHi is not a function
 🤔 Why?
 
 Internally:
-
 var sayHi = undefined; // hoisted
-
 sayHi(); // ❌ undefined()
 
 sayHi = function() {
 console.log("Hi");
 };
-
 👉 Only the variable is hoisted, not the function
 
 🔹 3. let / const Function Expression
 sayBye();
-
 let sayBye = function() {
 console.log("Bye");
 };
 ❌ Output:
 ReferenceError
-🤔 Why?
 
+🤔 Why?
 Because of TDZ (Temporal Dead Zone)
 
 sayBye is hoisted
 But not initialized
 So you cannot access it before declaration
-🔥 Quick Comparison
-Type Hoisted? Can call before declaration?
-Function Declaration ✅ Fully ✅ Yes
-Function Expression (var) ⚠️ Partially ❌ No
-Function Expression (let/const) ⚠️ TDZ ❌ No
+
 🧩 How it works internally (Memory Phase)
-
 Example:
-
 function a() {}
 var b = function() {};
 let c = function() {};
 
 👉 Memory creation:
-
 a → full function stored ✅
 b → undefined
 c → uninitialized (TDZ)
-🧑‍🍳 Simple analogy
 
+🧑‍🍳 Simple analogy
 Think of it like tools 🧰:
 
 Function Declaration
-
 👉 Full tool ready before work starts
 
 Function Expression
-
 👉 Only box is there, tool comes later
 
 let/const
-
 👉 Box is locked (TDZ) until opened
 
 🎯 Important Points
@@ -793,126 +757,102 @@ Function expressions behave like variables
 var → undefined
 let/const → TDZ
 Only declarations (not assignments) are hoisted
+
 🧾 Final Summary
 Function declaration → fully hoisted
 Function expression → partially hoisted
 let/const → TDZ applies
-💡 One-line takeaway
 
-👉
-Only function declarations are completely hoisted; function expressions follow variable hoisting rules
+💡 One-line takeaway
+👉Only function declarations are completely hoisted; function expressions follow variable hoisting rules
 
 **This Keyword**
-What is Function Hoisting?
+In JavaScript, the this keyword refers to the context in which a function is executed—basically, “who is calling this function.”
 
-👉 Function hoisting means:
+But unlike many other languages, this in JavaScript is dynamic (it changes depending on how the function is called, not where it’s written).
 
-JavaScript moves function declarations to the top of their scope during the memory phase
+🔹 1. Global Context
+In the global scope:
 
-🔹 1. Function Declaration (Fully Hoisted)
-sayHello();
+console.log(this);
+In browsers → window
+In Node.js → global (or {} in strict modules)
 
-function sayHello() {
-console.log("Hello");
+🔹 2. Inside an Object Method
+When used inside an object:
+
+const person = {
+name: "Alice",
+greet() {
+console.log(this.name);
 }
-✅ Output:
-Hello
-🤔 Why does this work?
+};
 
-Because internally JavaScript treats it like:
+person.greet(); // Alice
 
-function sayHello() {
-console.log("Hello");
+👉 this refers to the object calling the method (person).
+
+🔹 3. Inside a Regular Function
+function show() {
+console.log(this);
 }
 
-sayHello();
+show();
+Non-strict mode → window
+Strict mode → undefined
 
-👉 The entire function (code + body) is hoisted
+🔹 4. Arrow Functions (Important ⚠️)
+Arrow functions do NOT have their own this.
+They inherit it from the surrounding (lexical) scope.
 
-✔ You can call it before declaration
-
-🔹 2. Function Expression (NOT fully hoisted)
-sayHi();
-
-var sayHi = function() {
-console.log("Hi");
-};
-❌ Output:
-TypeError: sayHi is not a function
-🤔 Why?
-
-Internally:
-
-var sayHi = undefined; // hoisted
-
-sayHi(); // ❌ undefined()
-
-sayHi = function() {
-console.log("Hi");
+const obj = {
+name: "Bob",
+greet: () => {
+console.log(this.name);
+}
 };
 
-👉 Only the variable is hoisted, not the function
+obj.greet(); // undefined
 
-🔹 3. let / const Function Expression
-sayBye();
+👉 Here, this is NOT obj, it’s from the outer scope.
 
-let sayBye = function() {
-console.log("Bye");
-};
-❌ Output:
-ReferenceError
-🤔 Why?
+🔹 5. Event Handlers
+button.addEventListener("click", function () {
+console.log(this); // the button
+});
 
-Because of TDZ (Temporal Dead Zone)
+👉 this refers to the element that triggered the event
 
-sayBye is hoisted
-But not initialized
-So you cannot access it before declaration
-🔥 Quick Comparison
-Type Hoisted? Can call before declaration?
-Function Declaration ✅ Fully ✅ Yes
-Function Expression (var) ⚠️ Partially ❌ No
-Function Expression (let/const) ⚠️ TDZ ❌ No
-🧩 How it works internally (Memory Phase)
+🔹 6. Constructor Functions / Classes
+function Person(name) {
+this.name = name;
+}
 
-Example:
+const p = new Person("John");
+console.log(p.name); // John
 
-function a() {}
-var b = function() {};
-let c = function() {};
+👉 this refers to the newly created object
 
-👉 Memory creation:
+🔹 7. Explicit Binding (call, apply, bind)
 
-a → full function stored ✅
-b → undefined
-c → uninitialized (TDZ)
-🧑‍🍳 Simple analogy
+You can manually set this:
 
-Think of it like tools 🧰:
+function greet() {
+console.log(this.name);
+}
 
-Function Declaration
+const user = { name: "Emma" };
 
-👉 Full tool ready before work starts
+greet.call(user); // Emma
 
-Function Expression
+Summary:
 
-👉 Only box is there, tool comes later
-
-let/const
-
-👉 Box is locked (TDZ) until opened
-
-🎯 Important Points
-Function declarations are fully hoisted
-Function expressions behave like variables
-var → undefined
-let/const → TDZ
-Only declarations (not assignments) are hoisted
-🧾 Final Summary
-Function declaration → fully hoisted
-Function expression → partially hoisted
-let/const → TDZ applies
-💡 One-line takeaway
-
-👉
-Only function declarations are completely hoisted; function expressions follow variable hoisting rules
+| Situation           | `this` refers to            |
+| ------------------- | --------------------------- |
+| Global scope        | Global object               |
+| Object method       | The object                  |
+| Regular function    | Global / undefined (strict) |
+| Arrow function      | Lexical (outer) `this`      |
+| Constructor (`new`) | New instance                |
+| Event handler       | Element triggering event    |
+| `call/apply/bind`   | Explicitly set value        |
